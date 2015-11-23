@@ -1,4 +1,4 @@
-package com.baracuda.piepet.pominterceptor;
+package com.baracuda.piepet.m2releasetrigger;
 
 
 import hudson.Extension;
@@ -37,7 +37,7 @@ public class M2ReleaseListener extends RunListener<AbstractBuild> {
     @Override
     public void onCompleted(AbstractBuild abstractBuild, TaskListener listener) {
         MavenModuleSetBuild mavenModuleSetBuild = ((MavenModuleSetBuild) abstractBuild);
-
+        abstractBuild.addAction(M2ReleaseTriggerBadge.createShortText(mavenModuleSetBuild.getBuildVariables().get("MVN_RELEASE_VERSION")));
         List<? extends Action> actions = mavenModuleSetBuild.getAllActions();
         for (Action action : actions) {
             if (action.getClass().getName().equals("org.jvnet.hudson.plugins.m2release.M2ReleaseArgumentsAction")) {

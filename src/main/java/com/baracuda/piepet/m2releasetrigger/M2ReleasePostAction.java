@@ -1,4 +1,4 @@
-package com.baracuda.piepet.pominterceptor;
+package com.baracuda.piepet.m2releasetrigger;
 
 import hudson.model.ParameterValue;
 import hudson.model.ParametersAction;
@@ -24,7 +24,8 @@ public class M2ReleasePostAction {
             values.add(new StringParameterValue("targetEnvironment", targetEnv));
             // schedule post maven release step
             ParametersAction parameters = new ParametersAction(values);
-            project.scheduleBuild(0,new ReleaseCause(), parameters);
+            project.scheduleBuild(0, new ReleaseCause(), parameters);
+
         }
 
     }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.baracuda.piepet.pominterceptor;
+package com.baracuda.piepet.m2releasetrigger;
 
 import hudson.model.Cause.UserIdCause;
 
